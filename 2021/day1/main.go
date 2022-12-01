@@ -2,28 +2,26 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"strconv"
-	"strings"
+	"log"
+	advent_of_code "nullawhale.com/aoc"
 )
 
-func fetchInput() (res []int) {
-	data, err := ioutil.ReadFile("i")
+func fetchInput(filename string) ([]int, error) {
+	data, err := advent_of_code.ReadFile(filename)
 	if err != nil {
-		fmt.Printf("Err: %s", err)
-	}
-	str := strings.SplitN(string(data), "\n", 2000)
-	for _, s := range str {
-		num, _ := strconv.Atoi(strings.TrimSuffix(s, "\n"))
-		res = append(res, num)
+		return nil, err
 	}
 
-	return res
+	res, err := advent_of_code.StringSliceToIntSlice(data)
+	if err != nil {
+		return nil, err
+	}
+
+	return res, nil
 }
 
-func star1() int {
+func star1(data []int) (int, error) {
 	var sum = 0
-	var data = fetchInput()
 
 	for i := 1; i < len(data); i++ {
 		if data[i] > data[i-1] {
@@ -31,13 +29,12 @@ func star1() int {
 		}
 	}
 
-	return sum
+	return sum, nil
 }
 
-func star2() int {
+func star2(data []int) (int, error) {
 	var a2 []int
 	var sum = 0
-	var data = fetchInput()
 
 	for i := 1; i < len(data)-1; i++ {
 		a2 = append(a2, data[i-1]+data[i]+data[i+1])
@@ -48,10 +45,24 @@ func star2() int {
 		}
 	}
 
-	return sum
+	return sum, nil
 }
 
 func main() {
-	fmt.Printf("First star: %d\n", star1())
-	fmt.Printf("Second star: %d\n", star2())
+	data, err := fetchInput("i")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	star, err := star1(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("First star: %d\n", star)
+
+	star, err = star2(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Second star: %d\n", star)
 }
