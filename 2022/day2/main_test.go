@@ -11,7 +11,7 @@ func TestFetchInput(t *testing.T) {
 		t.Errorf("got error: %q", err)
 	}
 
-	want := []string{"1000", "2000", "3000", "", "4000", "", "5000", "6000", "", "7000", "8000", "9000", "", "10000"}
+	want := []string{"A Y", "B X", "C Z"}
 	assert.Equal(t, got, want)
 }
 
@@ -20,12 +20,8 @@ func TestStar1(t *testing.T) {
 	if err != nil {
 		t.Errorf("got error: %q", err)
 	}
-	got, err := star1(data)
-
-	if err != nil {
-		t.Errorf("got error: %q", err)
-	}
-	want := 24000
+	got := star1(data)
+	want := 15
 	assert.Equal(t, got, want)
 }
 
@@ -34,21 +30,23 @@ func TestStar2(t *testing.T) {
 	if err != nil {
 		t.Errorf("got error: %q", err)
 	}
-	got, err := star2(data)
-	if err != nil {
-		t.Errorf("got error: %q", err)
-	}
-	want := 45000
+	got := star2(data)
+	want := 12
 	assert.Equal(t, got, want)
 }
 
-func TestRowSums(t *testing.T) {
+func TestParsePairs(t *testing.T) {
 	data, err := fetchInput("i_test")
 	if err != nil {
 		t.Errorf("got error: %q", err)
 	}
-	_, err = rowSums(data)
+	got := parsePairs(data)
 	if err != nil {
 		t.Errorf("got error: %q", err)
 	}
+	want := []Pair{{elf: 0, me: 1}, {elf: 1, me: 0}, {elf: 2, me: 2}}
+	for n, g := range got {
+		assert.Equal(t, g, want[n])
+	}
+
 }
