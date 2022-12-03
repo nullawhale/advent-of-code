@@ -12,7 +12,7 @@ func TestFetchInput(t *testing.T) {
 	}
 
 	want := []string{"1000", "2000", "3000", "", "4000", "", "5000", "6000", "", "7000", "8000", "9000", "", "10000"}
-	assert.Equal(t, got, want)
+	assert.Equal(t, want, got)
 }
 
 func TestStar1(t *testing.T) {
@@ -26,7 +26,7 @@ func TestStar1(t *testing.T) {
 		t.Errorf("got error: %q", err)
 	}
 	want := 24000
-	assert.Equal(t, got, want)
+	assert.Equal(t, want, got)
 }
 
 func TestStar2(t *testing.T) {
@@ -39,7 +39,7 @@ func TestStar2(t *testing.T) {
 		t.Errorf("got error: %q", err)
 	}
 	want := 45000
-	assert.Equal(t, got, want)
+	assert.Equal(t, want, got)
 }
 
 func TestRowSums(t *testing.T) {

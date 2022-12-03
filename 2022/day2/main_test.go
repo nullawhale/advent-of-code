@@ -12,7 +12,7 @@ func TestFetchInput(t *testing.T) {
 	}
 
 	want := []string{"A Y", "B X", "C Z"}
-	assert.Equal(t, got, want)
+	assert.Equal(t, want, got)
 }
 
 func TestStar1(t *testing.T) {
@@ -22,7 +22,7 @@ func TestStar1(t *testing.T) {
 	}
 	got := star1(data)
 	want := 15
-	assert.Equal(t, got, want)
+	assert.Equal(t, want, got)
 }
 
 func TestStar2(t *testing.T) {
@@ -32,7 +32,7 @@ func TestStar2(t *testing.T) {
 	}
 	got := star2(data)
 	want := 12
-	assert.Equal(t, got, want)
+	assert.Equal(t, want, got)
 }
 
 func TestParsePairs(t *testing.T) {
@@ -48,5 +48,4 @@ func TestParsePairs(t *testing.T) {
 	for n, g := range got {
 		assert.Equal(t, g, want[n])
 	}
-
 }

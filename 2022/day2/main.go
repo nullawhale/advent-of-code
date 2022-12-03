@@ -83,7 +83,7 @@ func parsePairs(pairs []string) []Pair {
 }
 
 func main() {
-	data, err := fetchInput("i_test")
+	data, err := fetchInput("i")
 	if err != nil {
 		log.Fatal(err)
 	}
