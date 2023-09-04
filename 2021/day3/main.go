@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"math"
 	"os"
 	"strconv"
@@ -121,6 +122,7 @@ func remove(slice []string, i int) []string {
 }
 
 func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	fmt.Printf("First star: %d\n", star1())
 	fmt.Printf("Second star: %d\n", star2())
 }

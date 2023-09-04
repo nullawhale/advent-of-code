@@ -67,6 +67,7 @@ func rowSums(strings []string) (map[int]int, error) {
 }
 
 func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	data, err := fetchInput("i")
 	if err != nil {
 		log.Fatal(err)

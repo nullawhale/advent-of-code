@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -78,6 +79,7 @@ func star2() int {
 }
 
 func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	fmt.Printf("First star: %d\n", star1())
 	fmt.Printf("Second star: %d\n", star2())
 }

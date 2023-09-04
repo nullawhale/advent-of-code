@@ -83,6 +83,7 @@ func parsePairs(pairs []string) []Pair {
 }
 
 func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	data, err := fetchInput("i")
 	if err != nil {
 		log.Fatal(err)
